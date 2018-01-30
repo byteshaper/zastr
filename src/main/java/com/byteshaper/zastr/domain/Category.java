@@ -4,7 +4,7 @@ import javax.persistence.ManyToOne;
 
 /**
  * Categories belongs either to a project (meaning they are toplevel categories) or to a parent category.
- * {@link Expense}s always belong to a {@link Category}.
+ * {@link SingleExpense}s always belong to a {@link Category}.
  * 
  * So exactly either {@link #cashbook} or {@link #parent} need to be non-null
  * 
