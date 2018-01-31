@@ -1,25 +1,31 @@
 package com.byteshaper.zastr.domain;
 
+import java.util.Arrays;
 import java.util.Locale;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Currency {
+public enum Currency {
     
-    /**
-     * 2-digit language code as used in {@link Locale}
-     */
-    private String languageCode;
+    EUR("DE"), 
+    JPY("JP"), 
+    CAD("CA"), 
+    CHF("CH"),
+    USD("US"), 
+    GBP("GB"); // to be continued
+
+    private final Locale locale;
     
-    /**
-     * 2-digit country code as used in {@link Locale}
-     */
-    private String countryCode;
+    private Currency(String uppercaseTwoDigitCountryCode) {
+        locale = Arrays
+                .stream(Locale.getAvailableLocales())
+                .filter(loc -> loc.getCountry().equals(uppercaseTwoDigitCountryCode))
+                .findAny()
+                .orElseThrow(() -> 
+                    new IllegalArgumentException("No locale found for countrycode " + uppercaseTwoDigitCountryCode));
+    }
     
-    /**
-     * 3-digit currency code as in {@link java.util.Currency}
-     */
-    private String currencyCode;
-    
-    
+    public Locale getLocale() {
+        return locale;
+    }
 }
