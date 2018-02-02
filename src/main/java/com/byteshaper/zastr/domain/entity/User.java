@@ -1,4 +1,4 @@
-package com.byteshaper.zastr.domain;
+package com.byteshaper.zastr.domain.entity;
 
 import javax.persistence.Entity;
 
