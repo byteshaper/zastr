@@ -11,7 +11,4 @@ import javax.persistence.Entity;
 @Entity
 public class Cashbook extends AbstractEntity {
   
-    private Currency currency;
-  // stores currency or locales
-  // has a title
 }
