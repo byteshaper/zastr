@@ -1,7 +1,6 @@
 package com.byteshaper.zastr.domain;
 
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
@@ -19,7 +18,6 @@ public class Cashbook extends AbstractEntity {
   
 	@NotNull
 	private User owner;
-	
 	
 	private List<User> sharedWith;
 }

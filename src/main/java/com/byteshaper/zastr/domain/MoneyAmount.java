@@ -1,21 +1,39 @@
 package com.byteshaper.zastr.domain;
 
 import java.math.BigDecimal;
-import java.text.NumberFormat;
-
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
 @Embeddable
 public class MoneyAmount {
-    
+
 	@NotNull
-    private BigDecimal amount;
-    
+	private BigDecimal amount;
+
 	@NotNull
-    private Currency currency;
-    
-    public String getAmountFormatted() {
-        return NumberFormat.getCurrencyInstance(currency.getLocale()).format(amount); 
-    }
+	private Currency currency;
+	
+	@SuppressWarnings("unused")
+	private MoneyAmount() {}
+	
+	public MoneyAmount(BigDecimal amount, Currency currency) {
+		this.amount = amount;
+		this.currency = currency;
+	}
+
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
+	}
 }
